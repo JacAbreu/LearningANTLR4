@@ -5,9 +5,9 @@ import java.io.InputStream;
 
 public class Calc {
     public static void main(String[] args) throws Exception {
-        InputStream is = (args.length > 0) 
+        InputStream is = (args.length == 0) 
             ?  System.in
-            : new FileInputStream(inputFile);
+            : new FileInputStream(args[0]);
         
         ANTLRInputStream input = new ANTLRInputStream(is);
         LabeledExprLexer lexer = new LabeledExprLexer(input);
