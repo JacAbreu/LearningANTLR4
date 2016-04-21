@@ -5,10 +5,9 @@ import java.io.InputStream;
 
 public class Calc {
     public static void main(String[] args) throws Exception {
-        String inputFile = null; 
-        if (args.length > 0) inputFile = args[0];
-        InputStream is = System.in;
-        if (inputFile != null) is = new FileInputStream(inputFile);
+        InputStream is = (args.length > 0) 
+            ?  System.in
+            : new FileInputStream(inputFile);
         
         ANTLRInputStream input = new ANTLRInputStream(is);
         LabeledExprLexer lexer = new LabeledExprLexer(input);
